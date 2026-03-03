@@ -104,6 +104,7 @@ pipeline {
                         sh 'git config user.name "Jenkins CI"'
                         sh 'git config user.email "jenkins@example.com"'
                         sh 'git remote set-url origin https://$USER:$PASS@github.com/Alee7hub/java-maven-app.git'
+                        sh 'git rebase --abort || true'
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
                         sh 'git pull --rebase origin jenkins-jobs'

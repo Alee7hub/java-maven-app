@@ -104,10 +104,9 @@ pipeline {
                         sh 'git config user.name "Jenkins CI"'
                         sh 'git config user.email "jenkins@example.com"'
                         sh 'git remote set-url origin https://$USER:$PASS@github.com/Alee7hub/java-maven-app.git'
-                        sh 'git checkout jenkins-jobs'
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
-                        sh 'git push origin jenkins-jobs'
+                        sh 'git push origin HEAD:jenkins-jobs'
                     }
                 }
             }

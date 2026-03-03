@@ -107,7 +107,7 @@ pipeline {
                         sh 'git clean -fd target/ || true'
                         sh 'git rebase --abort || rm -fr .git/rebase-merge || true'
                         sh 'git add pom.xml'
-                        sh 'git commit -m "ci: version bump"'
+                        sh 'git diff --cached --quiet || git commit -m "ci: version bump"'
                         sh 'git pull --rebase origin jenkins-jobs'
                         sh 'git push origin HEAD:jenkins-jobs'
                     }
